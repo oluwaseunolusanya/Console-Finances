@@ -22,6 +22,9 @@ N/A
 ## Usage
 Navigate to this https://oluwaseunolusanya.github.io/Console-Finances/
 
+![image](https://github.com/oluwaseunolusanya/Console-Finances/assets/26019734/b507fbe1-a5c1-4745-8f45-2b3c60bb1ee1)
+
+
 ## Credits
 Oluwaseun Olusanya
 
