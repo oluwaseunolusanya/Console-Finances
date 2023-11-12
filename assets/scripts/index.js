@@ -99,7 +99,7 @@ for(tradingSet = 0; tradingSet < totalMonths; tradingSet++){
 totalPL = total.toFixed(2);
 
 //Calculate Average of the P/L Changes over the entire period.
-let financesDelta = [];   //An array of changes over the period
+let financesDelta = [];   //Create an array to store the changes over the period
 for(tradingSet = 1; tradingSet < totalMonths; tradingSet++){
     let deltaPL = finances[tradingSet][1] - finances[tradingSet - 1][1];  //Subtract previous month's PL from current month's
     let currentMonth = finances[tradingSet][0];                           
@@ -113,6 +113,16 @@ for(let index = 0; index < financesDelta.length; index++){
 
 let deltaAverage = deltaTotal / financesDelta.length;
 averageChange = deltaAverage.toFixed(2);
+
+//Calculate the greatest increase in PL
+let greatestPLIncrease = Number.MIN_VALUE;
+for(let index = 0; index < financesDelta.length; index++){
+    if(financesDelta[index][1] > greatestPLIncrease){
+        greatestPLIncrease = financesDelta[index][1];
+        greatestPLIncreaseAmount = greatestPLIncrease.toFixed(2);
+        greatestPLIncreaseMonth = financesDelta[index][0];
+    }
+}
 
 
 //Display the Financial Statement
