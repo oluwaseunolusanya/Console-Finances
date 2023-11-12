@@ -86,17 +86,36 @@ let finances = [
     ['Jan-2017', 138230],
     ['Feb-2017', 671099],
   ];
-//Definining variables for the items on the financial statement.
-let tradingSet, tradingMonth = 0, tradingProfit = 1, totalMonths, total, averageChange, greatestPLIncreaseMonth,  greatestPLIncreaseAmount,  greatestPLDecreaseMonth, greatestPLDecreaseAmount;
+//Definine variables for the items on the financial statement.
+let tradingSet, tradingMonth = 0, tradingProfit = 1, totalMonths, totalPL, averageChange, greatestPLIncreaseMonth,  greatestPLIncreaseAmount,  greatestPLDecreaseMonth, greatestPLDecreaseAmount, financialStatement;
 
 totalMonths = finances.length;   //Total number of months in the dataset.
 
-//Calculation of the net total of Profit/Losses for the entire period.
-total = 0
+//Calculate the net total of Profit/Losses for the entire period.
+let total = 0
 for(tradingSet = 0; tradingSet < totalMonths; tradingSet++){
     total += finances[tradingSet][tradingProfit];
 }
+totalPL = total.toFixed(2);
 
-let financialStatement = `Financial Analysis \n------------------- \nTotal Months: ${totalMonths}  \nTotal: $${total} \nAverage Change: ${averageChange} \nGreatest Increase in Profits/Losses: ${greatestPLIncreaseMonth} ($${greatestPLIncreaseAmount}) \nGreatest Decrease in Profits/Losses: ${greatestPLDecreaseMonth} ($${greatestPLDecreaseAmount})`;
+//Calculate Average of the P/L Changes over the entire period.
+let financesDelta = [];   //An array of changes over the period
+for(tradingSet = 1; tradingSet < totalMonths; tradingSet++){
+    let deltaPL = finances[tradingSet][1] - finances[tradingSet - 1][1];  //Subtract previous month's PL from current month's
+    let currentMonth = finances[tradingSet][0];                           
+    financesDelta.push([currentMonth, deltaPL]);
+}
+
+let deltaTotal = 0;
+for(let index = 0; index < financesDelta.length; index++){
+    deltaTotal += financesDelta[index][1];
+}
+
+let deltaAverage = deltaTotal / financesDelta.length;
+averageChange = deltaAverage.toFixed(2);
+
+
+//Display the Financial Statement
+financialStatement = `Financial Analysis \n------------------- \nTotal Months: ${totalMonths}  \nTotal: $${totalPL} \nAverage Change: $${averageChange} \nGreatest Increase in Profits/Losses: ${greatestPLIncreaseMonth} ($${greatestPLIncreaseAmount}) \nGreatest Decrease in Profits/Losses: ${greatestPLDecreaseMonth} ($${greatestPLDecreaseAmount})`;
 
 alert(financialStatement);
