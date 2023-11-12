@@ -124,6 +124,15 @@ for(let index = 0; index < financesDelta.length; index++){
     }
 }
 
+//Calculate the greatest increase in PL
+let greatestPLDecrease = Number.MAX_VALUE;
+for(let index = 0; index < financesDelta.length; index++){
+    if(financesDelta[index][1] < greatestPLDecrease){
+        greatestPLDecrease = financesDelta[index][1];
+        greatestPLDecreaseAmount = greatestPLDecrease.toFixed(2);
+        greatestPLDecreaseMonth = financesDelta[index][0];
+    }
+}
 
 //Display the Financial Statement
 financialStatement = `Financial Analysis \n------------------- \nTotal Months: ${totalMonths}  \nTotal: $${totalPL} \nAverage Change: $${averageChange} \nGreatest Increase in Profits/Losses: ${greatestPLIncreaseMonth} ($${greatestPLIncreaseAmount}) \nGreatest Decrease in Profits/Losses: ${greatestPLDecreaseMonth} ($${greatestPLDecreaseAmount})`;
