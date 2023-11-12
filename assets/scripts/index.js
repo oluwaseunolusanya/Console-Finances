@@ -86,4 +86,9 @@ var finances = [
     ['Jan-2017', 138230],
     ['Feb-2017', 671099],
   ];
-  
+
+  let totalMonths, total, averageChange, greatestPLIncreaseMonth,  greatestPLIncreaseAmount,  greatestPLDecreaseMonth, greatestPLDecreaseAmount;
+
+  let financialStatement = `Financial Analysis \n------------------- \nTotal Months: ${totalMonths}  \nTotal: $${total} \nAverage Change: ${averageChange} \nGreatest Increase in Profits/Losses: ${greatestPLIncreaseMonth} ($${greatestPLIncreaseAmount}) \nGreatest Decrease in Profits/Losses: ${greatestPLDecreaseMonth} ($${greatestPLDecreaseAmount})`;
+
+  alert(financialStatement);
