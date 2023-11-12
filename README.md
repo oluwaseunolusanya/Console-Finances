@@ -2,7 +2,8 @@
 Analysis of the Financial Records of a Company
 
 ## Description
-This repository contains a codebase of the webpage showing the summary of the financial analysis of Profit/Lossess for Index Holdings.The webpage highlights the following;
+This repository contains a codebase of the webpage showing the summary of the financial analysis of Profit/Lossess for Index Holdings.
+The webpage highlights the following;
  - Total number of months in the financial dataset used for the analysis.
  - Net total of the profits and losses for the entire dataset.
  - Average change in P/L over the entire dataset.
