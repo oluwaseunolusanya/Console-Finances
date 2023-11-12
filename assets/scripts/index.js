@@ -88,6 +88,7 @@ var finances = [
   ];
 
   let totalMonths, total, averageChange, greatestPLIncreaseMonth,  greatestPLIncreaseAmount,  greatestPLDecreaseMonth, greatestPLDecreaseAmount;
+  totalMonths = finances.length;
 
   let financialStatement = `Financial Analysis \n------------------- \nTotal Months: ${totalMonths}  \nTotal: $${total} \nAverage Change: ${averageChange} \nGreatest Increase in Profits/Losses: ${greatestPLIncreaseMonth} ($${greatestPLIncreaseAmount}) \nGreatest Decrease in Profits/Losses: ${greatestPLDecreaseMonth} ($${greatestPLDecreaseAmount})`;
 
