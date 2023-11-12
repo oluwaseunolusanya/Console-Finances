@@ -1,4 +1,4 @@
-var finances = [
+let finances = [
     ['Jan-2010', 867884],
     ['Feb-2010', 984655],
     ['Mar-2010', 322013],
@@ -86,10 +86,17 @@ var finances = [
     ['Jan-2017', 138230],
     ['Feb-2017', 671099],
   ];
+//Definining variables for the items on the financial statement.
+let tradingSet, tradingMonth = 0, tradingProfit = 1, totalMonths, total, averageChange, greatestPLIncreaseMonth,  greatestPLIncreaseAmount,  greatestPLDecreaseMonth, greatestPLDecreaseAmount;
 
-  let totalMonths, total, averageChange, greatestPLIncreaseMonth,  greatestPLIncreaseAmount,  greatestPLDecreaseMonth, greatestPLDecreaseAmount;
-  totalMonths = finances.length;
+totalMonths = finances.length;   //Total number of months in the dataset.
 
-  let financialStatement = `Financial Analysis \n------------------- \nTotal Months: ${totalMonths}  \nTotal: $${total} \nAverage Change: ${averageChange} \nGreatest Increase in Profits/Losses: ${greatestPLIncreaseMonth} ($${greatestPLIncreaseAmount}) \nGreatest Decrease in Profits/Losses: ${greatestPLDecreaseMonth} ($${greatestPLDecreaseAmount})`;
+//Calculation of the net total of Profit/Losses for the entire period.
+total = 0
+for(tradingSet = 0; tradingSet < totalMonths; tradingSet++){
+    total += finances[tradingSet][tradingProfit];
+}
 
-  alert(financialStatement);
+let financialStatement = `Financial Analysis \n------------------- \nTotal Months: ${totalMonths}  \nTotal: $${total} \nAverage Change: ${averageChange} \nGreatest Increase in Profits/Losses: ${greatestPLIncreaseMonth} ($${greatestPLIncreaseAmount}) \nGreatest Decrease in Profits/Losses: ${greatestPLDecreaseMonth} ($${greatestPLDecreaseAmount})`;
+
+alert(financialStatement);
